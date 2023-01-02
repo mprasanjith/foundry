@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 
-const EditorHeader = () => {
-  const [title, setTitle] = useState("My Markdown Post");
+const EditorHeader: FC<any> = ({ title: initialTitle }) => {
+  const [title, setTitle] = useState(initialTitle);
 
   return (
     <header className="flex items-center justify-between bg-gray-300 px-4 py-3">
