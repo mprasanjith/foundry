@@ -1,8 +1,6 @@
 import React, { FC, useState } from "react";
 
-const EditorHeader: FC<any> = ({ title: initialTitle }) => {
-  const [title, setTitle] = useState(initialTitle);
-
+const EditorHeader: FC<any> = ({ title, setTitle }) => {
   return (
     <header className="flex items-center justify-between bg-gray-300 px-4 py-3">
       <input

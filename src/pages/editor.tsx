@@ -9,11 +9,12 @@ import { getGistById, getGistContent } from "./api/gists/[id]";
 const secret = process.env.NEXTAUTH_SECRET;
 
 const EditorPage: NextPage<any> = ({ data, content: initialContent }) => {
+  const [title, setTitle] = useState<string>(data?.description);
   const [content, setContent] = useState<string>(initialContent);
 
   return (
     <main className="flex h-screen flex-col items-stretch justify-between bg-white">
-      <EditorHeader title={data?.description} />
+      <EditorHeader title={title} setTitle={setTitle} />
       <div className="flex w-full flex-shrink flex-grow basis-0 flex-row overflow-scroll">
         <div className="flex-1">
           <Editor value={content} setValue={setContent} />
