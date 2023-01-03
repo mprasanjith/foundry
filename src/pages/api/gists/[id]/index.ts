@@ -5,9 +5,11 @@ const secret = process.env.NEXTAUTH_SECRET;
 
 export const getGistById = async (id: string, accessToken?: string) => {
   const response = await fetch(`https://api.github.com/gists/${id}`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
+    headers: !accessToken
+      ? undefined
+      : {
+          Authorization: `Bearer ${accessToken}`,
+        },
   });
   if (!response.ok) throw new Error("Unable to fetch");
 
@@ -16,11 +18,16 @@ export const getGistById = async (id: string, accessToken?: string) => {
 };
 
 export const getGistContent = async (url: string, accessToken?: string) => {
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
+  const response = await fetch(
+    url,
+    !accessToken
+      ? undefined
+      : {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+  );
   if (!response.ok) throw new Error("Unable to fetch");
 
   const gistContent = await response.text();
