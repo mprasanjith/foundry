@@ -5,6 +5,7 @@ import { formatDistanceToNow } from "date-fns";
 import { getGistById, getGistContent } from "../api/gists/[id]";
 import { DiscussionEmbed } from "disqus-react";
 import { useRouter } from "next/router";
+import SocialShare from "../../components/SocialShare";
 
 const BlogPost: FC<any> = ({ data, content }) => {
   const router = useRouter();
@@ -47,6 +48,8 @@ const BlogPost: FC<any> = ({ data, content }) => {
           />
         </div>
       </div>
+
+      <SocialShare data={data} />
     </div>
   );
 };
