@@ -2,8 +2,10 @@ import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/dist/shared/lib/utils";
 import { SWRConfig } from "swr";
 import type { Session } from "next-auth";
-import "../styles/globals.css";
 import Head from "next/head";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../styles/globals.css";
 
 const MyApp: AppType<{ session: Session }> = ({
   Component,
@@ -13,7 +15,10 @@ const MyApp: AppType<{ session: Session }> = ({
     <SessionProvider session={session}>
       <Head>
         <title>Foundry - The elegant Markdown publishing tool</title>
-        <meta name="description" content="Foundry - The elegant Markdown publishing tool" />
+        <meta
+          name="description"
+          content="Foundry - The elegant Markdown publishing tool"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -26,6 +31,8 @@ const MyApp: AppType<{ session: Session }> = ({
       >
         <Component {...pageProps} />
       </SWRConfig>
+
+      <ToastContainer position="bottom-right" />
     </SessionProvider>
   );
 };

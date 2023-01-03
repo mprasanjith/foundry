@@ -1,6 +1,6 @@
-import React, { FC, useState } from "react";
+import React, { type FC } from "react";
 
-const EditorHeader: FC<any> = ({ title, setTitle }) => {
+const EditorHeader: FC<any> = ({ title, setTitle, onUpdate }) => {
   return (
     <header className="flex items-center justify-between bg-gray-300 px-4 py-3">
       <input
@@ -13,8 +13,11 @@ const EditorHeader: FC<any> = ({ title, setTitle }) => {
         <button className="rounded-lg bg-gray-500 py-2 px-4 font-bold text-white hover:bg-gray-700">
           Share
         </button>
-        <button className="rounded-lg bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700">
-          Publish
+        <button
+          onClick={onUpdate}
+          className="rounded-lg bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
+        >
+          Save
         </button>
       </div>
     </header>

@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface LibraryItemProps {
   name: string;
   lastModified: Date;
+  published: boolean;
 }
 
-const LibraryItem: FC<LibraryItemProps> = ({ name, lastModified }) => {
+const LibraryItem: FC<LibraryItemProps> = ({ name, lastModified, published }) => {
   return (
     <div className="flex items-center justify-between rounded-lg bg-white p-3 shadow-sm border border-gray-200">
       <div className="flex items-center">
@@ -28,9 +29,10 @@ const LibraryItem: FC<LibraryItemProps> = ({ name, lastModified }) => {
         </div>
         <div>
           <h3 className="text-lg font-semibold">{name}</h3>
-          <p className="text-sm text-gray-600">{new Date(lastModified)?.toDateString()}</p>
+          <p className="text-sm text-gray-600">Updated on {new Date(lastModified)?.toDateString()}</p>
         </div>
       </div>
+      {/* <div>{published ? "Published": "Draft"}</div> */}
     </div>
   );
 };
