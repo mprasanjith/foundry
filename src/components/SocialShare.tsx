@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { FC } from "react";
+import type { FC } from "react";
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -13,7 +13,7 @@ import {
   TwitterShareButton,
 } from "react-share";
 
-const SocialShare: FC<any> = ({ data }) => {
+const SocialShare: FC<any> = () => {
   const router = useRouter();
 
   return (

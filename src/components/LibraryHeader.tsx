@@ -10,7 +10,7 @@ const LibraryHeader = () => {
       </h1>
       <div className="flex gap-2">
         <button
-          onClick={() => signOut()}
+          onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
           className="mx-auto my-1 rounded-full bg-gray-800 py-2 px-4 font-bold text-white hover:bg-gray-900"
         >
           Sign out

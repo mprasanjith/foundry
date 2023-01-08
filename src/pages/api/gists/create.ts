@@ -17,15 +17,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         description: "Untitled Draft",
         public: true,
         files: {
-          "index.md": { content: "" },
-          "foundry-metadata.json": { content: "" },
+          "index.md": { content: "Write your content here..." },
+          "foundry-metadata.json": { content: "{}" },
         },
       }),
+      
     });
-    console.log(await response.json());
-    if (!response.ok) throw new Error("Unable to fetch");
 
     const gist = await response.json();
+    if (!response.ok) throw new Error("Unable to fetch");
     res.status(200).json(gist);
   } catch (err) {
     res
